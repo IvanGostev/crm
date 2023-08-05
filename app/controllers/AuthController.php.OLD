@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Controllers;
+
+class AuthController {
+    public function register(array $data, array $files) : void
+    {
+        $username = trim($data['username']);
+        $fullName = trim($data['fullName']);
+        $email = trim($data['email']);
+        $password = trim($data['password']);
+        $passwordConfirm = trim($data['passwordConfirm']);
+        $avatar = $files['avatar'];
+        $fileName = time() . $avatar['name'];
+        $path = 'uploads/avatars' . $fileName;
+        if (move_uploaded_file($avatar['tmp_name'], $path)) {
+
+        }
+    }
+}
